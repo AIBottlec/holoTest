@@ -18,9 +18,7 @@ export default {
   margin: 0;
   padding: 0;
 }
-body{
-  // font-size:16px;
-}
+
 html,body{
   width:100%;
   height:100%;
@@ -35,13 +33,11 @@ html,body,#app{
 	color: #fff;
 }
 
-a,a:hover {
+a {
   text-decoration: none;
   color: #fff;  
 }
-a:active,a:focus{
-  // text-decoration:none;
-}
+
 h1, h2 {
   font-weight: normal;
 }

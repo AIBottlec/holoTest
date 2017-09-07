@@ -16,18 +16,6 @@
     </div>
 </template>
 <script>
-import 'bootstrap/js/modal.js';
-import 'bootstrap/js/dropdown.js';
-import 'bootstrap/js/tooltip.js';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'summernote';
-import 'summernote/dist/summernote.css';
-// import * as wilddog from 'wilddog'
-// var config = {
-//   syncURL: "https://wd4387898491vlvuuq.wilddogio.com" //输入节点 URL
-// };
-// wilddog.initializeApp(config);
-// var ref = wilddog.sync().ref();
 
   export default {
     name: 'hello',
@@ -50,64 +38,10 @@ import 'summernote/dist/summernote.css';
     components: {
     },
     mounted(){
-        var _this = this;
-        $('#summernote').summernote({
-            height: 200,// set editor height
-            focus: true,
-             toolbar: [
-                ['para', ['style','ul', 'ol', 'paragraph','height']],
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['fontsize','fontname','color']],
-                ['clean','removeFormat'],
-                ['link', ['link', 'unlink']],
-                ['insert', ['picture','table','hr']],
-                ['Misc',['undo','redo','fullscreen']],
-                
-            ],
-            callbacks:{
-                onChange:function(contents,$editable){
-                    if(_this.isSave){
-                        _this.artical.contents = contents;
-                        _this.$http.get("../../../../static/video.json",{
-                            "data":_this.artical,
-                        }).then((res)=>{
-                            console.log(_this.artical);
-                        }).catch((err)=>{
-                            console.log(err);
-                        });
-                    }
-                },
-                // onImageUpload: function(files) {
-                //     console.log(files);
-                //     // // 图片上传后提交到服务器
-                //     sendFile(JSON.stringify(files[0]));
-                // },
-            }
-        });
+        
     }
   }
-  function sendFile(data){
-    var formData = new FormData();  
-    formData.append("file", data); 
-    console.log(formData);
-
-    // ref.set({
-    //     "messageboard":{
-    //         "imageData":formData
-    //     }
-    // });
-    // ref.on("value", function(res) {
-    //         console.log(res.val());
-    // });
-    //  _this.$http.get("../../../../static/video.json",{
-    //     // "data":formData,
-    // }).then((data)=>{
-    //     // console.log(data);
-    //     // $("#summernote").summernote('insertImage', data);
-    // }).catch((err)=>{
-    //     console.log(err);
-    // });
-}
+  
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
